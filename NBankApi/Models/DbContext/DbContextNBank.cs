@@ -20,6 +20,7 @@ namespace NBankApi.Models.DbContext
         public DbSet<Partners> Aliados { get; set; }
         public DbSet<MunicipalityCol> Municipios { get; set; }
         public DbSet<FinancialStatus> EstadosFinancieros { get; set; }
+        public DbSet<NBankMembers> Miembros { get; set; }
         
     }
 

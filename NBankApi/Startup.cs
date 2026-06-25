@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using NBankApi.Models.DbContext;
+using NBankApi.Repositories.Consultas;
+using NBankApi.Repositories.Add;
 
 namespace NBankApi
 {
@@ -26,7 +30,17 @@ namespace NBankApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DbContextNBank>(options =>
+                options.UseMySql(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    ServerVersion.AutoDetect(
+                        Configuration.GetConnectionString("DefaultConnection")
+                    )
+                )
+            );
             services.AddControllers();
+            services.AddScoped<ConsultasClientes>();
+            services.AddScoped<AddClient>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
