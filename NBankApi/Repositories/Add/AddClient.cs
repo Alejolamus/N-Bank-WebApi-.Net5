@@ -23,23 +23,21 @@ namespace NBankApi.Repositories.Add
             string Tel)
         {
 
+            Clients cliente = new Clients()
             {
-                Clients cliente = new Clients()
-                {
-                    name = Nombre,
-                    id_location = idCiudad,
-                    document_type = tipo_documento,
-                    document = documento_num,
-                    password_hash = hash,
-                    email = correo,
-                    cellphone = Cel,
-                    phone = Tel,
-                };
+                name = Nombre,
+                id_location = idCiudad,
+                document_type = tipo_documento,
+                document = documento_num,
+                password_hash = hash,
+                email = correo,
+                cellphone = Cel,
+                phone = Tel,
+            };
 
-                _db.Clientes.Add(cliente);
+            _db.Clientes.Add(cliente);
 
-                _db.SaveChanges();
-            }
+            _db.SaveChanges();
         }
     }
 }

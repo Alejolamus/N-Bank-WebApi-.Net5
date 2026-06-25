@@ -10,14 +10,12 @@ namespace NBankApi.Services.CreateData
     public class CreateClient : ICreateClient
     {
         private readonly ConsultasClientes _clientesDB;
-        public CreateClient(ConsultasClientes clientesDb)
-        {
-            _clientesDB = clientesDb;
-        }
+
         private readonly AddClient _clientesAdd;
-        public CreateClient(AddClient clientesADD)
+        public CreateClient(ConsultasClientes clientesDb, AddClient clientesADD)
         {
             _clientesAdd = clientesADD;
+            _clientesDB = clientesDb;
         }
         public string createClient(DtosNewClient cliente)
         {

@@ -1,20 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using NBankApi.Models.DbContext;
-using NBankApi.Repositories.Consultas;
-using NBankApi.Repositories.Add;
+
+using NBankApi.Extensions;
 
 namespace NBankApi
 {
@@ -39,8 +34,9 @@ namespace NBankApi
                 )
             );
             services.AddControllers();
-            services.AddScoped<ConsultasClientes>();
-            services.AddScoped<AddClient>();
+            services.AddRepositories();
+            services.AddBackedServices();
+            services.ControllersInyection();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
