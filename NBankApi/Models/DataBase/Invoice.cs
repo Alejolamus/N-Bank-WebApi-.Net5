@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NBankApi.Models.DataBase
 {
-    public class Invoices
+    public class Invoice
     {
         [Key]
         public int id { get; set; }

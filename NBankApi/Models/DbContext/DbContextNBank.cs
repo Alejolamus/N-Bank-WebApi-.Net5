@@ -16,7 +16,7 @@ namespace NBankApi.Models.DbContext
         public DbSet<Credits> Creditos { get; set; }
         public DbSet<Currencys> Divisas { get; set; }
         public DbSet<FinancialProfiles> PerfilesMonetarios { get; set; }
-        public DbSet<Invoices> Facturas { get; set; }
+        public DbSet<Invoice> Facturas { get; set; }
         public DbSet<Partners> Aliados { get; set; }
         public DbSet<MunicipalityCol> Municipios { get; set; }
         public DbSet<FinancialStatus> EstadosFinancieros { get; set; }

@@ -41,7 +41,7 @@ namespace NBankApi.Models.DataBase
         public int PaidInstallament { get; set; }
         public virtual ICollection<Collects> recaudos { get; set; }
         public virtual FinancialProfiles perfil { get; set; }
-        public virtual ICollection<Invoices> facturas { get; set; }
+        public virtual ICollection<Invoice> facturas { get; set; }
 
     }
 }

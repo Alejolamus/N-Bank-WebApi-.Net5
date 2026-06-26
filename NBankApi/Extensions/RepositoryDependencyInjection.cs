@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NBankApi.Repositories.Add;
 using NBankApi.Repositories.Consultas;
+using NBankApi.Repositories.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,14 @@ namespace NBankApi.Extensions
             services.AddScoped<ConsultasAliados>();
             services.AddScoped<ConsultasClientes>();
             services.AddScoped<AddClient>();
+            services.AddScoped<ConsultasCreditos>();
+            services.AddScoped<ConsultasDivisas>();
+            services.AddScoped<AddInvoice>();
+            services.AddScoped<AddFinancialStatus>();
+            services.AddScoped<UpdateCredit>();
+            services.AddScoped<UpdateFinancialStatus>();
+            services.AddScoped<ConsultasFacturas>();
+            services.AddScoped<AddCollect>();
             return services;
         }
     }

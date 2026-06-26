@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NBankApi.Services.CreateData;
+using NBankApi.Services.Invoices;
 using NBankApi.Services.JwtServices;
 using NBankApi.Services.Login;
+using NBankApi.Services.MailServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +19,12 @@ namespace NBankApi.Extensions
             services.AddScoped<CreatedToken>();
             services.AddScoped<ValidarToken>();
             services.AddScoped<ValidarCredenciales>();
+            services.AddScoped<InvoiceValuesInDB>();
+            services.AddScoped<ModelGenerator>();
+            services.AddScoped<PdfAndEmailForidCre>();
+            services.AddScoped<DailyInvoices>();
             return services;
-
         }
     }
 }
-}
+
