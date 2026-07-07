@@ -24,6 +24,7 @@ namespace NBankApi.Controllers.LoginAndCreatedClientsControllers
             _validarIngreso = validarPass;
             _crearToken = crearToken;
         }
+        [HttpPost("Login")]
         public IActionResult CrearTokenDeIngreso(DataLogin dataCliente)
         {
             LoginDateValue resultadoLogin = _validarIngreso.ValidarUserPass(dataCliente.email, dataCliente.password);

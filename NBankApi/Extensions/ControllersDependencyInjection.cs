@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NBankApi.Controllers.DataForms;
 using NBankApi.Controllers.LoginAndCreatedClientsControllers;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace NBankApi.Extensions
         {
             services.AddScoped<CrearClientController>();
             services.AddScoped<LoginClientController>();
+            services.AddScoped<DtosMunicipiosController>();
             return services;
         }
     }

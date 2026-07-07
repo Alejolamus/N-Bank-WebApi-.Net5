@@ -21,10 +21,14 @@ namespace NBankApi.Extensions
             services.AddScoped<ConsultasDivisas>();
             services.AddScoped<AddInvoice>();
             services.AddScoped<AddFinancialStatus>();
+            services.AddScoped<ConsultasEstadosFinancieros>();
             services.AddScoped<UpdateCredit>();
             services.AddScoped<UpdateFinancialStatus>();
             services.AddScoped<ConsultasFacturas>();
             services.AddScoped<AddCollect>();
+            services.AddScoped<AddMuniciosCol>();
+            services.AddScoped<ConsultaMunicipios>();
+            services.AddScoped<AddCurrencys>();
             return services;
         }
     }

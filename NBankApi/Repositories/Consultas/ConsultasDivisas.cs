@@ -22,5 +22,9 @@ namespace NBankApi.Repositories.Consultas
         {
             return _db.Divisas.FirstOrDefault(x => x.id == id_money);
         }
+        public bool ExistMonedas()
+        {
+            return _db.Divisas.Any();
+        }
     }
 }

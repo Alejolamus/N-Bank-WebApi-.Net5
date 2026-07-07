@@ -1,6 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NBankApi.Dtos.Seed.AutomaticData;
+using NBankApi.Models.InvoiceModels;
 using NBankApi.Services.CreateData;
+using NBankApi.Services.CreditAppplications;
 using NBankApi.Services.Invoices;
+using NBankApi.Services.Invoices.QuestPdfCode;
 using NBankApi.Services.JwtServices;
 using NBankApi.Services.Login;
 using NBankApi.Services.MailServices;
@@ -23,6 +27,12 @@ namespace NBankApi.Extensions
             services.AddScoped<ModelGenerator>();
             services.AddScoped<PdfAndEmailForidCre>();
             services.AddScoped<DailyInvoices>();
+            services.AddScoped<CreditRisk>();
+            services.AddScoped<ModelGenerator>();
+            services.AddScoped<InvoiceValuesInDB>();
+            services.AddScoped<MunicipiosData>();
+            services.AddScoped<CurrencyData>();
+            services.AddScoped<DepartamentData>();
             return services;
         }
     }
