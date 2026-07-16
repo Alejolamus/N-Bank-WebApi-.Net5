@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace NBankApi.Dtos
 {
-    public class DepartamentoDto
+    public class MunicipioDto
     {
-        public string name { get; set; }
-        public List<MunicipioDto> municipios { get; set; }
+        public int idMunicipio { get; set; }
+        public string municipioName { get; set; }
     }
 }

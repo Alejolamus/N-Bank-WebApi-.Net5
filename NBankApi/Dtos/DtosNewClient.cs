@@ -8,7 +8,7 @@ namespace NBankApi.Dtos
         public int idLocation { get; set; }
         public typedocument.typedocu documentType { get; set; }
         public int document { get; set; }
-        public string passwarod { get; set; }
+        public string password { get; set; }
         public string email { get; set; }
         public string cellphone { get; set; }
         public string phone { get; set; }
@@ -25,7 +25,7 @@ namespace NBankApi.Dtos
             idLocation = IdLocation;
             documentType = DocumentType;
             document = Document;
-            passwarod = Password;
+            password = Password;
             email = Email;
             cellphone = Cellphone;
             phone = Phone;

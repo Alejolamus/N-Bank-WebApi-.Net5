@@ -33,13 +33,16 @@ namespace NBankApi.Controllers.LoginAndCreatedClientsControllers
                 switch (Respuesta)
                 {
                     case "correo en uso":
-                        return Conflict();
+                        return Conflict(Respuesta);
 
                     case "cliente ya existente":
-                        return Conflict();
+                        return Conflict(Respuesta);
+
+                    case "cliente creado":
+                        return Ok(Respuesta);
 
                     default:
-                        return Ok(Respuesta);
+                        return BadRequest("Error no esperado");
                 }
             }
 

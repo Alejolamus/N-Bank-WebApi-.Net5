@@ -27,32 +27,27 @@ namespace NBankApi.Services.CreditAppplications
         public ValoresCoutaSeguroCredt CalculoValores(DtosSolicitudCredito data)
         {
             decimal SeguroMensual = (data.valueOfCredit / 1000000) * 13000;
-            ValoresCoutaSeguroCredt costos = null;
             switch (data.frecuenciaCobro)
             {
                 case Frecuencia.frecuencia.weekly:
                     decimal CuotaWeek = CuotaMetodoFrances(data.valueOfCredit,
                                                            0.006m,
                                                            data.numCuotas);
-                    costos.cuota = CuotaWeek;
-                    costos.seguro = SeguroMensual;
-                    break;
+                    ValoresCoutaSeguroCredt costos1 = new ValoresCoutaSeguroCredt(SeguroMensual, CuotaWeek);
+                    return costos1;
                 case Frecuencia.frecuencia.biweekly:
                     decimal CuotaBieekly = CuotaMetodoFrances(data.valueOfCredit,
                                                            0.012m,
                                                            data.numCuotas);
-                    costos.cuota = CuotaBieekly;
-                    costos.seguro = SeguroMensual;
-                    break; ;
+                    ValoresCoutaSeguroCredt costos2 = new ValoresCoutaSeguroCredt(SeguroMensual, CuotaBieekly);
+                    return costos2;
                 default:
                     decimal CuotaMonthly = CuotaMetodoFrances(data.valueOfCredit,
                                                            0.024m,
                                                            data.numCuotas);
-                    costos.cuota = CuotaMonthly;
-                    costos.seguro = SeguroMensual;
-                    break;
+                    ValoresCoutaSeguroCredt costos3 = new ValoresCoutaSeguroCredt(SeguroMensual, CuotaMonthly);
+                    return costos3;
             }
-            return costos;
         }
     }
 }

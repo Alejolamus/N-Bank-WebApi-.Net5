@@ -15,7 +15,7 @@ namespace NBankApi.Services.JwtServices
         {
             _configuration = configuration;
         }
-            public string CrearToken(string id, string rol)
+            public string CrearToken(string id, string rol, string name)
         {
             Jwt jwt = _configuration.GetSection("Jwt").Get<Jwt>();
             var claims = new[]
@@ -24,7 +24,8 @@ namespace NBankApi.Services.JwtServices
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                         new Claim("id", id),
-                        new Claim("Rol", rol)
+                        new Claim(ClaimTypes.Role, rol),
+                        new Claim("name", name)
                     };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
             var singIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -32,7 +33,8 @@ namespace NBankApi.Services.JwtServices
                 jwt.Issuer,
                 jwt.Audience,
                 claims,
-                signingCredentials: singIn);
+                signingCredentials: singIn,
+                expires:DateTime.UtcNow.AddHours(2));
             string tokenStr = new JwtSecurityTokenHandler().WriteToken(token);
             return tokenStr;
         }

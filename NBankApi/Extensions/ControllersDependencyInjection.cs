@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NBankApi.Controllers.CreditControllers;
 using NBankApi.Controllers.DataForms;
 using NBankApi.Controllers.LoginAndCreatedClientsControllers;
 using System;
@@ -15,6 +16,8 @@ namespace NBankApi.Extensions
             services.AddScoped<CrearClientController>();
             services.AddScoped<LoginClientController>();
             services.AddScoped<DtosMunicipiosController>();
+            services.AddScoped<currencysDataFormController>();
+            services.AddScoped<CotizarController>();
             return services;
         }
     }

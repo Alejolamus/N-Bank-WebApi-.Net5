@@ -21,7 +21,7 @@ namespace NBankApi.Services.Login
             Clients usuario = _clientesDB.ClientePorCorreo(correo);
             if (usuario == null)
             {
-                LoginDateValue respuesta = new LoginDateValue("usuario no existe",0);
+                LoginDateValue respuesta = new LoginDateValue("usuario no existe",0,"");
                 return respuesta;
             }
             else
@@ -29,12 +29,12 @@ namespace NBankApi.Services.Login
                 bool esContraseñaValida = comparador.CompararContraseñaVsHash(usuario.password_hash, pass);
                 if (esContraseñaValida)
                 {
-                    LoginDateValue respuesta = new LoginDateValue("Acceso Permitido", usuario.id);
+                    LoginDateValue respuesta = new LoginDateValue("Acceso Permitido", usuario.id, usuario.name);
                     return respuesta;
                 }
                 else
                 {
-                    LoginDateValue respuesta = new LoginDateValue("contraseña no valida", 0);
+                    LoginDateValue respuesta = new LoginDateValue("contraseña no valida", 0,"");
                     return respuesta;
                 }
             }

@@ -9,10 +9,12 @@ namespace NBankApi.Dtos
     {
         public string msn { get; set; }
         public int idUser { get; set; }
-        public LoginDateValue(string Correo, int idUsuario)
+        public string nombre { get; set; }
+        public LoginDateValue(string Correo, int idUsuario, string Nombre)
         {
             msn = Correo;
             idUser = idUsuario;
+            nombre = Nombre;
         }
     }
 }

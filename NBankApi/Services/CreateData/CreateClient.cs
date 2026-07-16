@@ -27,7 +27,7 @@ namespace NBankApi.Services.CreateData
             {
                 if (existenciaCorreo == null)
                 {
-                    string hashPass = encryptor.Encrypt(cliente.passwarod);
+                    string hashPass = encryptor.Encrypt(cliente.password);
                     _clientesAdd.AddCliente(cliente.name,
                                              cliente.idLocation,
                                              cliente.documentType,

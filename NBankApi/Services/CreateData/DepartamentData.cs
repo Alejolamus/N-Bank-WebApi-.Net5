@@ -23,17 +23,21 @@ namespace NBankApi.Services.CreateData
             foreach (MunicipalityCol municipio in dataMuniciosDb)
             {
                 DepartamentoDto departamentoEnLista = municipiosPorDepartamento.FirstOrDefault(h => h.name == municipio.department);
-
+                MunicipioDto mucipioData = new MunicipioDto();
                 if (departamentoEnLista!=null)
                 {
-                    departamentoEnLista.municipios.Add(municipio.municipality);
+                    mucipioData.idMunicipio = municipio.id;
+                    mucipioData.municipioName = municipio.municipality;
+                    departamentoEnLista.municipios.Add(mucipioData);
                 }
                 else
                 {
                     DepartamentoDto newDepartamet = new DepartamentoDto();
                     newDepartamet.name = municipio.department;
-                    List<string> municipiosDelDepartamento = new List<string>();
-                    municipiosDelDepartamento.Add(municipio.municipality);
+                    List<MunicipioDto> municipiosDelDepartamento = new List<MunicipioDto>();
+                    mucipioData.idMunicipio = municipio.id;
+                    mucipioData.municipioName = municipio.municipality;
+                    municipiosDelDepartamento.Add(mucipioData);
                     newDepartamet.municipios = municipiosDelDepartamento;
                     municipiosPorDepartamento.Add(newDepartamet);
                 }

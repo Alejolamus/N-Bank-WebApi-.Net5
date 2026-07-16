@@ -29,6 +29,7 @@ namespace NBankApi.Extensions
             services.AddScoped<AddMuniciosCol>();
             services.AddScoped<ConsultaMunicipios>();
             services.AddScoped<AddCurrencys>();
+            services.AddScoped < AddCredit > ();
             return services;
         }
     }

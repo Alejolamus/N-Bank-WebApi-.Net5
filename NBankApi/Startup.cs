@@ -7,9 +7,11 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using NBankApi.Models.DbContext;
 
 using NBankApi.Extensions;
+using System;
 
 namespace NBankApi
 {
@@ -34,6 +36,17 @@ namespace NBankApi
                 )
             );
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Angular",
+                    builder =>
+                    {
+                        builder
+                            .WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
             services.AddRepositories();
             services.AddBackedServices();
             services.ControllersInyection();
@@ -43,6 +56,30 @@ namespace NBankApi
                 {
                     Title = "APINbak",
                     Version = "v1"
+                });
+                c.AddSecurityDefinition("Bearer",
+                new OpenApiSecurityScheme
+                {
+                    Name = "Autorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme="bearer",
+                    BearerFormat="JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Ingrese: Bearer {token}"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
                 });
             });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -58,6 +95,7 @@ namespace NBankApi
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
+            services.AddAuthorization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,6 +122,7 @@ namespace NBankApi
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api NBank");
             });
+            app.UseCors("Angular");
             app.UseAuthentication();
             app.UseAuthorization();
 

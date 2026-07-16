@@ -7,7 +7,7 @@ namespace NBankApi.Services.PasswordServices
 {
     public class EncryptAndDecrypt
     {
-        byte[] Key = Encoding.UTF8.GetBytes("jWnZq4tW!z%C*F-JaNdRgUKXp2s5u8x");
+        byte[] Key = Encoding.UTF8.GetBytes("jWnZq4tW!z%C*F-JaNdRgUKXp2s5u86x");
         byte[] Iv = Encoding.UTF8.GetBytes("q369z$q31*_t6?z$");
         public string Encrypt(string password)
         {
