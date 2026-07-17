@@ -35,7 +35,7 @@ namespace NBankApi.Controllers.LoginAndCreatedClientsControllers
                 case "contraseña no valida":
                     return Unauthorized();
                 default:
-                    string tokenStr = _crearToken.CrearToken(resultadoLogin.ToString(), "Client", resultadoLogin.nombre);
+                    string tokenStr = _crearToken.CrearToken(resultadoLogin.idUser.ToString(), "Client", resultadoLogin.nombre);
                     return Ok(tokenStr);
             }
         }

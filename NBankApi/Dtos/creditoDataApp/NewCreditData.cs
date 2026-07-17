@@ -11,7 +11,6 @@ namespace NBankApi.Dtos.creditoDataApp
         public int enumFrecuenciaFront { get; set; }
         public int numDeCuotras { get; set; }
         public DateTime primerPago { get; set; }
-        public int enumAprovacion { get; set; }
         public decimal valorCredito { get; set; }
         public int moneda { get; set; } 
     }

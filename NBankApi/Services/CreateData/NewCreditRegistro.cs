@@ -18,7 +18,6 @@ namespace NBankApi.Services.CreateData
         public void CrearNewCredit(NewCreditData data)
         {
             Frecuencia.frecuencia frecuenciaCobro = new Frecuencia.frecuencia();
-            EstadoDeAprovacion.estado EstadoCredito = new EstadoDeAprovacion.estado();
             switch (data.enumFrecuenciaFront)
             {
                 case 0:
@@ -31,16 +30,12 @@ namespace NBankApi.Services.CreateData
                     frecuenciaCobro = Frecuencia.frecuencia.monthly;
                     break;
             }
-            if (data.enumAprovacion == 0)
-            {
-                EstadoCredito = EstadoDeAprovacion.estado.approved;
-            }else { EstadoCredito = EstadoDeAprovacion.estado.not_approved; }
             _addCredit.AddCredito(data.idCliente,
                                   DateTime.Today,
                                   frecuenciaCobro,
                                   data.numDeCuotras,
                                   data.primerPago,
-                                  EstadoCredito,
+                                  EstadoDeAprovacion.estado.approved,
                                   data.valorCredito,
                                   0,
                                   0,
