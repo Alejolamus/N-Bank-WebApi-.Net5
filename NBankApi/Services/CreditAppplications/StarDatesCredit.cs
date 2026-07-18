@@ -9,10 +9,12 @@ namespace NBankApi.Services.CreditAppplications
 {
     public class StarDatesCredit
     {
+        //metodo para fechas de un credito
         public PrimerosDatosDeFechas CrearFechas(Frecuencia.frecuencia ciclo)
         {
             DateTime primerCorte = DateTime.Now;
             DateTime hoy = DateTime.Today;
+            //determinacion de fechas por casos de frecuencia
             switch (ciclo)
             {
                 case Frecuencia.frecuencia.weekly:

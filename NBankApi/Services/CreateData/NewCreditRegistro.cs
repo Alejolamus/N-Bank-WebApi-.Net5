@@ -10,11 +10,13 @@ namespace NBankApi.Services.CreateData
 {
     public class NewCreditRegistro
     {
+        // inyeccion de repositorio
         private readonly AddCredit _addCredit;
         public NewCreditRegistro (AddCredit addCredit)
         {
             _addCredit = addCredit;
         }
+        //metodo para crear registro en la tabla de clientes
         public void CrearNewCredit(NewCreditData data)
         {
             Frecuencia.frecuencia frecuenciaCobro = new Frecuencia.frecuencia();

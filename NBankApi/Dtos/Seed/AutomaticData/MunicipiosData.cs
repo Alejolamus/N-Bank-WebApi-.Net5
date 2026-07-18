@@ -13,6 +13,7 @@ namespace NBankApi.Dtos.Seed.AutomaticData
 {
     public class MunicipiosData
     {
+        //inyeccion de dependencias
         private readonly AddMuniciosCol _addMunicipiosCol;
         private readonly ConsultaMunicipios _consultaMunicipios;
         public MunicipiosData(AddMuniciosCol addMuniciosCol, ConsultaMunicipios consultaMunicipios)
@@ -20,6 +21,7 @@ namespace NBankApi.Dtos.Seed.AutomaticData
             _addMunicipiosCol = addMuniciosCol;
             _consultaMunicipios = consultaMunicipios;
         }
+        //metodo que consume repositorio para agregar los datos a bd leyendo un csv
         public void IngresarMuniciosCol()
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -34,6 +36,7 @@ namespace NBankApi.Dtos.Seed.AutomaticData
                 _addMunicipiosCol.addMulcipios(registro.Departamento, registro.Municipio);
             }
         }
+        //Metodo para garantizar el inicio de municipios en base de datos
         public void CargarMunicipios()
         {
             if (_consultaMunicipios.ExistMunicipios())

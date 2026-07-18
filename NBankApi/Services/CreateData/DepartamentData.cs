@@ -9,17 +9,19 @@ using NBankApi.Models.DataBase;
 namespace NBankApi.Services.CreateData
 {
     public class DepartamentData
+        //inyeccion de repositorio
     {
         private readonly ConsultaMunicipios _consultaMunicipios;
         public DepartamentData (ConsultaMunicipios consultaMunicipios)
         {
             _consultaMunicipios = consultaMunicipios;
         }
+        //metodo para generar datos para el controlador
         public List<DepartamentoDto> municipiosColombia()
         {
             List<MunicipalityCol> dataMuniciosDb = _consultaMunicipios.listMunicipios();
             List<DepartamentoDto> municipiosPorDepartamento = new List<DepartamentoDto>();
-
+            //ciclo para crear lista con objetos {string(departamento) y lista de municios de dicho
             foreach (MunicipalityCol municipio in dataMuniciosDb)
             {
                 DepartamentoDto departamentoEnLista = municipiosPorDepartamento.FirstOrDefault(h => h.name == municipio.department);

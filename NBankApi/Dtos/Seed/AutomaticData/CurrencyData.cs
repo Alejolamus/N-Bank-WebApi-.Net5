@@ -13,6 +13,7 @@ namespace NBankApi.Dtos.Seed.AutomaticData
 {
     public class CurrencyData
     {
+        //inyeccion de dependencias
         private readonly AddCurrencys _addCurrencys;
         private readonly ConsultasDivisas _consultaDivisas;
         public CurrencyData(AddCurrencys addCurrencys, ConsultasDivisas consultaDivisas)
@@ -20,6 +21,7 @@ namespace NBankApi.Dtos.Seed.AutomaticData
             _addCurrencys = addCurrencys;
             _consultaDivisas = consultaDivisas;
         }
+        //metodo que consume repositorio para agregar los datos a bd leyendo un csv
         public void IngresarMonedas()
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -39,6 +41,7 @@ namespace NBankApi.Dtos.Seed.AutomaticData
                                          registro.Symbol);
             }
         }
+        //Metodo para garantizar el inicio de monedas en base de datos
         public void CargarMonedas()
         {
             if (_consultaDivisas.ExistMonedas())

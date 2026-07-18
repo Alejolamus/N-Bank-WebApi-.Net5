@@ -17,6 +17,7 @@ namespace NBankApi.Controllers.LoginAndCreatedClientsControllers
     [ApiController]
     public class LoginClientController : ControllerBase
     {
+        //inyeccion de dependencias
         private readonly ValidarCredenciales _validarIngreso;
         private readonly CreatedToken _crearToken;
         public LoginClientController(ValidarCredenciales validarPass, CreatedToken crearToken)
@@ -24,7 +25,9 @@ namespace NBankApi.Controllers.LoginAndCreatedClientsControllers
             _validarIngreso = validarPass;
             _crearToken = crearToken;
         }
+        //Declaracion de metodo http
         [HttpPost("Login")]
+        //metodo para crear validar login de cliente y entregarle token JWT
         public IActionResult CrearTokenDeIngreso(DataLogin dataCliente)
         {
             LoginDateValue resultadoLogin = _validarIngreso.ValidarUserPass(dataCliente.email, dataCliente.password);

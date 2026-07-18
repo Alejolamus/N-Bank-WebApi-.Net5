@@ -14,13 +14,16 @@ namespace NBankApi.Controllers.CreditControllers
     [ApiController]
     public class CreditRegisterController : ControllerBase
     {
+        //inyeccion de dependencias
         private readonly NewCreditRegistro _newCreditRegistro;
         public CreditRegisterController (NewCreditRegistro newCreditRegistro)
         {
             _newCreditRegistro = newCreditRegistro;
         }
+        //declaracion de protocolo http y autorizacion por token de cliente
         [Authorize(Roles = "Client")]
         [HttpPost]
+        //controlador para registrar un credito
         public IActionResult RegistrarCreditoDb(NewCreditData data)
         {
             _newCreditRegistro.CrearNewCredit(data);

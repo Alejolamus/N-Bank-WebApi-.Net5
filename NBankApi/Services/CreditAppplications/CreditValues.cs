@@ -9,6 +9,7 @@ namespace NBankApi.Services.CreditAppplications
 {
     public class CreditValues
     {
+        // metodo para potencias de base decimal
         public decimal potenciaExpoNaturalDecimal(decimal baseExp, int expotente)
         {
             decimal resultado = 1m;
@@ -18,15 +19,18 @@ namespace NBankApi.Services.CreditAppplications
             };
             return resultado;
         }
+        //metodo para el calculo de cuota por medio del metodo frances
         public decimal CuotaMetodoFrances(decimal creditoTotal, decimal interes, int numDeCuotas)
         {
             decimal potencia = potenciaExpoNaturalDecimal(1 + interes, numDeCuotas);
             decimal cuotaFrances = creditoTotal * ((interes * (potencia)) / (potencia - 1));
             return cuotaFrances;
         }
+        //valores generales de un credito
         public ValoresCoutaSeguroCredt CalculoValores(DtosSolicitudCredito data)
         {
             decimal SeguroMensual = (data.valueOfCredit / 1000000) * 13000;
+            //segmentacion de casos por frecuencia de pago
             switch (data.frecuenciaCobro)
             {
                 case Frecuencia.frecuencia.weekly:

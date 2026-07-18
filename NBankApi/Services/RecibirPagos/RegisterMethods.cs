@@ -12,6 +12,7 @@ namespace NBankApi.Services.RecibirPagos
 {
     public class RegisterMethods
     {
+        //Inyeccion de dependencias
         private readonly ConsultasFacturas _consultasFacturas;
         private readonly ConsultasEstadosFinancieros _consultasEstadosFinancieros;
         private readonly UpdateFinancialStatus _updateFinancialStatus;
@@ -29,6 +30,7 @@ namespace NBankApi.Services.RecibirPagos
             _addCollect = addCollect;
             _updateCredit = updateCredit;
         }
+        //metodo de pago a un solo modo
         public void ResgistrarPagoUnico(ModelUnique model)
         {
             Invoice invoice = _consultasFacturas.FacturaParticularNum(model.numInvoice);
@@ -44,6 +46,7 @@ namespace NBankApi.Services.RecibirPagos
             }
             _updateCredit.UpdateOutadingBalance(invoice.id_credit, model.value);
         }
+        //Metodo  para pago avono y saldo factura--consume repositorio
         public void ResgistrarPagoDual(ModelDual model)
         {
             Invoice invoice = _consultasFacturas.FacturaParticularNum(model.numInvoice);

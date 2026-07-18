@@ -13,6 +13,7 @@ namespace NBankApi.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
+            //declaracion de servicios del Repositorio
             services.AddScoped<ConsultasMiembros>();
             services.AddScoped<ConsultasAliados>();
             services.AddScoped<ConsultasClientes>();

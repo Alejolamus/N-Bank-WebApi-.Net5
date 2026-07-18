@@ -13,6 +13,7 @@ namespace NBankApi.Extensions
     {
         public static IServiceCollection ControllersInyection(this IServiceCollection services)
         {
+            //declaracion de servicios de controladores
             services.AddScoped<CrearClientController>();
             services.AddScoped<LoginClientController>();
             services.AddScoped<DtosMunicipiosController>();

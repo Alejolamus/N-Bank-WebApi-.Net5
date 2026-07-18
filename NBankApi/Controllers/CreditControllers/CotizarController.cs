@@ -15,13 +15,16 @@ namespace NBankApi.Controllers.CreditControllers
 
     public class CotizarController : ControllerBase
     {
+        //inyeccion de dependencias
         private readonly CotizarCreditos _cotizarCreditos;
         public CotizarController (CotizarCreditos cotizarCreditos)
         {
             _cotizarCreditos = cotizarCreditos;
         }
+        //declaracion de metodo http y autorizacion por token de cliente
         [Authorize(Roles = "Client")]
         [HttpPost]
+        //controlador para obtener los valores asociados a una cotizacion
         public IActionResult cotizarCreditoControl(CotizarData data)
         {
             StarDatesCreditApp respuesta = _cotizarCreditos.valoresCotizacion(data);

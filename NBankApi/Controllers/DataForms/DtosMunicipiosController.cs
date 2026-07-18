@@ -13,12 +13,15 @@ namespace NBankApi.Controllers.DataForms
     [ApiController]
     public class DtosMunicipiosController : ControllerBase
     {
+        //inyeccion de dependencias
         private readonly DepartamentData _departamentData;
         public DtosMunicipiosController(DepartamentData departamentData)
         {
             _departamentData = departamentData;
         }
+        //declaracion de metodo http
         [HttpGet]
+        //Metodo para entregar municipios, endpoint publico
         public IActionResult DepartamentosYMunicios()
         {
             List<DepartamentoDto> departametosYmunicipios = _departamentData.municipiosColombia();

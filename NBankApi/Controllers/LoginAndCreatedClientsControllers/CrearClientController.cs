@@ -13,14 +13,16 @@ namespace NBankApi.Controllers.LoginAndCreatedClientsControllers
     [ApiController]
     public class CrearClientController : ControllerBase
     {
+        //inyeccion de dependencias
         private readonly CreateClient _createClient;
 
         public CrearClientController(CreateClient createClient)
         {
             _createClient = createClient;
         }
+        //declaracion del tipo de metodo http
         [HttpPost]
-
+        //creacion de cliente endpoint publico
         public IActionResult CrearCliente(DtosNewClient dataCliente)
         {
             if (dataCliente == null)
