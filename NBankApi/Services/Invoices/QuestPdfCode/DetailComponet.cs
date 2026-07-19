@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace NBankApi.Services.Invoices.QuestPdfCode
 {
     public class DetailComponet
-    {
+    {   //informacion de pago detallada
         public static void detailComponent(QuestPDF.Infrastructure.IContainer container,
             CreditInvoiceModel model)
         {

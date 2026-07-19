@@ -12,6 +12,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla clientes, sin retorno
         public void AddCliente(
             string Nombre,
             int idCiudad,

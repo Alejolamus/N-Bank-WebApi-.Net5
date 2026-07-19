@@ -14,6 +14,7 @@ namespace NBankApi.Repositories.Consultas
         {
             _db = db;
         }
+        //retorna un estado financiero por medio de su id
         public FinancialStatus EstadoFactura(int idFactura)
         {
             return _db.EstadosFinancieros.FirstOrDefault(x => x.idInvoice == idFactura);

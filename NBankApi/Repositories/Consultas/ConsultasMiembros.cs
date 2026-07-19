@@ -15,6 +15,7 @@ namespace NBankApi.Repositories.Consultas
         {
             _db = db;
         }
+        //busca un ientro por id
         public NBankMembers BusquedaMienbroIdCargo(int idMember, nBankMembersRoles.roles Rol)
         {
             return _db.Miembros.FirstOrDefault(k => k.id == idMember && k.rol == Rol);

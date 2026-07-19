@@ -27,6 +27,7 @@ namespace NBankApi.Services.MailServices
             _buscarClientes = buscarClientes;
             _generadorDeModelo = generadorDeModelo;
         }
+        //metodo para buscar credito y realizar en envio al cliente al cual se encuentra asociado
         public DataInvoice CorreoFacturaPorIdCredit(int idcredito)
         {
             CreditInvoiceModel model = _generadorDeModelo.GenerarModeloFactura(idcredito);

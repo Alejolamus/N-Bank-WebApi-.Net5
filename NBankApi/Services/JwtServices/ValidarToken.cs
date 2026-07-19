@@ -24,6 +24,7 @@ namespace NBankApi.Services.JwtServices
             _consultarClientes = consultasClientes;
             _consultarMiembros = consultasMiembros;
         }
+        //valida el token y tiene en cuenta el rol de usuario
         public JwtValidacionData ValidacionDeToken(ClaimsIdentity identity)
         {
             try

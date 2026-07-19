@@ -14,6 +14,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla de monedas, sin retorno
         public void addMonedas(string IsoAlpha2, string IsoAlpha3, string pais,
                                string CodigoMoneda, string NombreMoneda, string simbolo)
         {

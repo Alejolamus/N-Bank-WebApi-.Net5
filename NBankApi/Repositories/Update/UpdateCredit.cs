@@ -14,6 +14,7 @@ namespace NBankApi.Repositories.Update
         {
             _db = db;
         }
+        //actualiza un credito por su id cambiado el saldo pendiente
         public void UpdateOutadingBalance(int idCredit, decimal valor)
         {
             Credits credito = _db.Creditos.FirstOrDefault(x => x.id == idCredit);

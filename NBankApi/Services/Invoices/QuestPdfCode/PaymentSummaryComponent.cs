@@ -9,6 +9,7 @@ namespace NBankApi.Services.Invoices.QuestPdfCode
 {
     public class PaymentSummaryComponent
     {
+        //seccion de detalle de pago usa tablas dentro de un contenedor
         public static void paymentSummaryComponent(QuestPDF.Infrastructure.IContainer container,
             CreditInvoiceModel model)
         {

@@ -10,6 +10,7 @@ namespace NBankApi.Services.MailServices
 {
     public class SendMailMethod
     {
+        //metodo para envio de mensajes via correo electronico valores reales a asociar en caso de uso
         public void SendMail(MailModel modelo)
         {
 

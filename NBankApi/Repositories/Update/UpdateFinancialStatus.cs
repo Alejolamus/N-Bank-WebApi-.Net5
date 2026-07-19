@@ -14,6 +14,7 @@ namespace NBankApi.Repositories.Update
         {
             _db = db;
         }
+        //actualiza un estado financiero asociado a una factura
         public void UpdateValues(int idInvoice, decimal Seguro, decimal saldoR)
         {
             FinancialStatus estado = _db.EstadosFinancieros.FirstOrDefault(x => x.idInvoice == idInvoice);

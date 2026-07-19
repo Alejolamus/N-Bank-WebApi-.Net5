@@ -11,6 +11,7 @@ namespace NBankApi.Services.Invoices
 {
     public class InvoiceValuesInDB
     {
+        //inyeccion de dependencias
         private readonly ConsultasCreditos _findCredits;
         private readonly ConsultasClientes _findClients;
         private readonly ConsultasDivisas _findCurrencys;
@@ -22,6 +23,7 @@ namespace NBankApi.Services.Invoices
             _findClients = findClient;
             _findCurrencys = findCurrency;
         }
+        //valores de factura asociados a un clietes
         public CreditInvoiceValues valoresDeFactura(int idCredit)
         {
             Credits credito = _findCredits.ConsultaCreditoIdCredit(idCredit);

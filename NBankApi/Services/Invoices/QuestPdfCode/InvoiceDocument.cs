@@ -16,9 +16,10 @@ namespace NBankApi.Services.Invoices.QuestPdfCode
         {
             Model = model;
         }
+        //configuracion inicial de la liberia QuestPDF para generar el documento
         public DocumentMetadata GetMetadata() => DocumentMetadata.Default;
         public DocumentSettings GetSettings() => DocumentSettings.Default;
-
+        //metodo que recopila encabezado detalle e informacion de pago en una pagina
         public void Compose(IDocumentContainer container)
         {
             container.Page(page =>

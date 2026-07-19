@@ -14,6 +14,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla estado financiero, sin retorno
         public void AddEstadidoFinanciero(int IdInvoice, decimal VSeguro, decimal VCuota, decimal VMora)
         {
             FinancialStatus estado = new FinancialStatus()

@@ -13,6 +13,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla de municipios col, sin retorno
         public void addMulcipios(string departamento, string Municipio)
         {
             MunicipalityCol municipio = new MunicipalityCol()

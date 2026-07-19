@@ -15,6 +15,7 @@ namespace NBankApi.Services.Invoices
         {
             _valuesForInvoiceDb = valuesForInvoiceDb;
         }
+        // valores de facturas usados para generar el objeto del modelo de factura
         public CreditInvoiceModel GenerarModeloFactura(int idCredit)
         {
             CreditInvoiceValues datosDB = _valuesForInvoiceDb.valoresDeFactura(idCredit);

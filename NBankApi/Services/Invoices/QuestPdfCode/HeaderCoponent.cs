@@ -9,6 +9,7 @@ namespace NBankApi.Services.Invoices.QuestPdfCode
 {
     public class HeaderCoponent
     {
+        //encabezado de la factura recurre a un contenedor de datos
         public static void headerCoponent(
             QuestPDF.Infrastructure.IContainer container,
             CreditInvoiceModel model)

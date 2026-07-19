@@ -25,7 +25,7 @@ namespace NBankApi.Services.MailServices
             _addFinancialStatus = addFinancialStatus;
             _pdfAndEmail = pdfAndEmail;
         }
-
+        //metodo que busca todos los creditos con fecha de corte al dia de ejecucion, genera y envia factura
         public void SendDayliInvocices()
         {
 

@@ -15,6 +15,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla de recaudos, sin retorno
         public void AddRecaudo(int idFactura,
                                decimal recaudo,
                                DateTime fechapago,

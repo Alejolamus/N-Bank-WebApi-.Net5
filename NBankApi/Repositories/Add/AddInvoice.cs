@@ -15,6 +15,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla de facturas, sin retorno
         public Invoice AddFactura(string numero_factura,
                                int id_credito,
                                decimal cobro,

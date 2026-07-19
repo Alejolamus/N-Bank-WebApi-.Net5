@@ -15,6 +15,7 @@ namespace NBankApi.Repositories.Add
         {
             _db = db;
         }
+        //ingresa registro a la tabla de creditos, sin retorno
         public void AddCredito(int id_usuario,
                                DateTime fecha_inicio,
                                Frecuencia.frecuencia frecuencia_pagos,
